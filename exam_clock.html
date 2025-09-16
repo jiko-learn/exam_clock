@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  body {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Darker text color */
+    font-family: "Arial", sans-serif; /* Modern font */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center; /* Center text */
+  }
+
+  .clock {
+    font-size: 300px; /* Larger font size */
+    font-weight: bold; /* Make it bold */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    background: linear-gradient(to right, blue, indigo, violet, blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .date  {
+    font-size: 36px; /* Slightly larger date */
+    font-weight: 500; /* Semi-bold */
+  }
+
+  .course {
+    font-size: 36px; /* Slightly larger date */
+    font-weight: 500; /* Semi-bold */
+    margin-bottom: 5px;
+  }
+  .input-form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-field {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 250px;
+  }
+
+  .update-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .update-button:hover {
+    background-color: #45a049;
+  }
+</style>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <title>นาฬิกาดิจิตอล</title>
+    <style>
+      body {
+        background-color: #f0f0f0; /* Light gray background */
+        color: #333; /* Darker text color */
+        font-family: "Arial", sans-serif; /* Modern font */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center; /* Center text */
+      }
+
+      .clock {
+        font-size: 120px; /* Larger font size */
+        font-weight: bold; /* Make it bold */
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+      }
+
+      .date .course{
+        font-size: 36px; /* Slightly larger date */
+        font-weight: 500; /* Semi-bold */
+        margin-bottom: 5px;
+      }
+      h1 {
+        font-size: 48px;
+        font-weight: bold;
+        color: blue;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      h3 {
+        font-size: 48px;
+        font-weight: bold;
+        color: #fb0446;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="https://polsci.soc.ku.ac.th/wp-content/uploads/2020/02/KU5-1.png" alt="Kasetsart University Logo" width="150" />
+    </div>
+    <div>
+      <h1></br></br></br></br>ห้องสอบ ศร1-331</br></h1>
+    </div>
+    <div class="date" id="date">วันจันทร์ 1 มกราคม พ.ศ. 2568</div>
+    <!-- ไม่ต้องแก้ไข -->
+    <div class="clock" id="clock">00:00:00</div>
+    <!-- ไม่ต้องแก้ไข -->
+    <div>
+
+      <h2 class="course" id="subjectDisplay">วิชา เคมีพื้นฐาน I</h2>
+      <script>
+        function updateSubject() {
+          const subject = document.getElementById('subjectInput').value;
+          if (subject) {
+        document.getElementById('subjectDisplay').textContent = 'วิชา ' + subject;
+          }
+        }
+      </script></div>
+      <h2 class="course">รหัสวิชา 01403113</h2>
+      <h3>หมดเวลา 16:30 น.</br></br></br></h3>
+    </div>
+          <div class="input-form">
+        <input type="text" id="subjectInput" class="input-field" placeholder="กรอกชื่อวิชา">
+        <input type="text" id="courseCodeInput" class="input-field" placeholder="กรอกรหัสวิชา">
+        </br>
+        <input type="text" id="roomInput" class="input-field" placeholder="กรอกเลขห้องสอบ">
+        <input type="text" id="timeoutInput" class="input-field" placeholder="กรอกเวลาที่สิ้นสุด (เช่น 16:30 น.)">
+
+        <button onclick="updateInfo()" class="update-button">กดเพื่ออัพเดต</button>
+        <script>
+            function updateInfo() {
+          const subject = document.getElementById('subjectInput').value;
+          const courseCode = document.getElementById('courseCodeInput').value;
+          const room = document.getElementById('roomInput').value;
+          const timeout = document.getElementById('timeoutInput').value;
+
+          if (subject) {
+              document.getElementById('subjectDisplay').textContent = 'วิชา ' + subject;
+          }
+          if (courseCode) {
+              document.getElementsByTagName('h2')[1].textContent = 'รหัสวิชา ' + courseCode;
+          }
+          if (room) {
+              document.getElementsByTagName('h1')[0].innerHTML = '</br></br></br>ห้องสอบ ' + room;
+          }
+          if (timeout) {
+              document.getElementsByTagName('h3')[0].innerHTML = 'หมดเวลา ' + timeout + '</br></br></br>';
+          }
+            }
+        </script>
+    </br>
+    </div>
+    <script>
+      function updateClock() {
+        const now = new Date();
+
+        // เวลา
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        document.getElementById("clock").textContent = timeString;
+
+        // วันที่และวันในสัปดาห์
+        const days = [
+          "อาทิตย์",
+          "จันทร์",
+          "อังคาร",
+          "พุธ",
+          "พฤหัสบดี",
+          "ศุกร์",
+          "เสาร์",
+        ];
+        const months = [
+          "มกราคม",
+          "กุมภาพันธ์",
+          "มีนาคม",
+          "เมษายน",
+          "พฤษภาคม",
+          "มิถุนายน",
+          "กรกฎาคม",
+          "สิงหาคม",
+          "กันยายน",
+          "ตุลาคม",
+          "พฤศจิกายน",
+          "ธันวาคม",
+        ];
+
+        const dayName = days[now.getDay()];
+        const day = now.getDate();
+        const month = months[now.getMonth()];
+        const year = now.getFullYear() + 543;
+
+        const dateString = `วัน${dayName} ${day} ${month} พ.ศ. ${year}`;
+        document.getElementById("date").textContent = dateString;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock(); // เรียกครั้งแรกทันที
+    </script>
+  </body>
+</html>
