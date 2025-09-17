@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 <style>
   body {
     background-color: #f7f7f7; /* Light gray background */
     color: #333; /* Darker text color */
-    font-family: "Prompt", sans-serif; /* Modern font */
+    font-family: "Prompt", sans-serif; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    
     margin: 0;
     text-align: center; /* Center text */
   }
-
+        h1 {
+        font-size: 48px;
+        font-weight: bold;
+        color: blue;
+        margin-bottom: 0px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      h3 {
+        font-size: 48px;
+        font-weight: bold;
+        color: #fb0446;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
   .clock {
-    font-size: 300px; /* Larger font size */
+    font-family: 'Arial', sans-serif;
+    font-size: 125px; /* Larger font size */
     font-weight: bold; /* Make it bold */
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
     background: linear-gradient(to right, blue, indigo, violet, blue);
     -webkit-background-clip: text;
@@ -25,16 +40,17 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .date  {
-    font-size: 36px; /* Slightly larger date */
-    font-weight: 500; /* Semi-bold */
-  }
-
+  .date {
+        font-size: 30px; /* Slightly larger date */
+        font-weight: 600; 
+        margin-bottom: 2px;
+      }
+  
   .course {
-    font-size: 36px; /* Slightly larger date */
-    font-weight: 500; /* Semi-bold */
-    margin-bottom: 2px;
-  }
+        font-size: 32px; 
+        font-weight: 600; 
+        margin-bottom: 0px;
+      }    
   .input-form {
     margin-bottom: 20px;
     padding: 15px;
@@ -53,7 +69,7 @@
   }
 
   .update-button {
-    background-color: #4caf50;
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -66,85 +82,49 @@
     background-color: #45a049;
   }
 </style>
-<html lang="th">
   <head>
     <meta charset="UTF-8" />
     <title>นาฬิกาดิจิตอลในห้องสอบ</title>
-    <style>
-      body {
-        background-color: #f7f7f7; /* Light gray background */
-        color: #333; /* Darker text color */
-        font-family: "Prompt", sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        text-align: center; /* Center text */
-      }
-
-      .clock {
-        font-size: 120px; /* Larger font size */
-        font-weight: bold; /* Make it bold */
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-      }
-
-      .date .course{
-        font-size: 36px; /* Slightly larger date */
-        font-weight: 500; /* Semi-bold */
-        margin-bottom: 5px;
-      }
-      h1 {
-        font-size: 48px;
-        font-weight: bold;
-        color: blue;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-      }
-      h3 {
-        font-size: 48px;
-        font-weight: bold;
-        color: #fb0446;
-        margin-bottom: 30px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-      }
-    </style>
   </head>
   <body>
     <div>
     </br>
-    <img src="https://www.ku.ac.th/web2012/images/logo-ku.png" style="max-width:100px; height:auto;" />
-    </div>
-      <h1></br></br></br></br>ห้องสอบ ศร1-331</br></h1>
-    </div>
-    <div style="
-    background: linear-gradient(135deg, #f0f0f0, #ffffff);
+    <div style="background: linear-gradient(135deg, #f0f0f0, #ffffff);
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-  ">
+    padding: 15px;
+    width: 600px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    margin-bottom: 1px;
+    border: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+    text-align: center;">
     <div class="date" id="date">วันจันทร์ 1 มกราคม พ.ศ. 2568</div>
     <!-- ไม่ต้องแก้ไข -->
     <div class="clock" id="clock">00:00:00</div>
     <!-- ไม่ต้องแก้ไข -->
     </div>
     <div>
+      <h1>ห้องสอบ ศร1-331</h1>
+    </div>
+    <div style="display: flex;
+    flex-direction: row;
+    justify-content: center; /* Vertically center content */
+    align-items: center;">
       <h2 class="course" id="subjectDisplay">วิชา เคมีพื้นฐาน I</h2>
-      <script>
-        function updateSubject() {
-          const subject = document.getElementById('subjectInput').value;
-          if (subject) {
-        document.getElementById('subjectDisplay').textContent = 'วิชา ' + subject;
-          }
-        }
-      </script></div>
-      <h2 class="course">รหัสวิชา 01403113</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <h2 class="course">รหัสวิชา 01403113</h2>      
+    </div>
       <h3>หมดเวลา 16:30 น.</br></br></br></h3>
     </div>
+    
+    <div class="container">
+      <img src="https://polsci.soc.ku.ac.th/wp-content/uploads/2020/02/KU5-1-1024x406.png" alt="KU Logo" style="width: 240px; margin-bottom: 10px;" />  
+    </div>
+
           <div class="input-form">
         <input type="text" id="subjectInput" class="input-field" placeholder="กรอกชื่อวิชา">
         <input type="text" id="courseCodeInput" class="input-field" placeholder="กรอกรหัสวิชา">
@@ -161,13 +141,13 @@
           const timeout = document.getElementById('timeoutInput').value;
 
           if (subject) {
-              document.getElementById('subjectDisplay').textContent = 'วิชา ' + subject;
+              document.getElementById('subjectDisplay').textContent = 'วิชา: ' + subject;
           }
           if (courseCode) {
               document.getElementsByTagName('h2')[1].textContent = 'รหัสวิชา ' + courseCode;
           }
           if (room) {
-              document.getElementsByTagName('h1')[0].innerHTML = '</br></br></br>ห้องสอบ ' + room;
+              document.getElementsByTagName('h1')[0].innerHTML = 'ห้องสอบ ' + room;
           }
           if (timeout) {
               document.getElementsByTagName('h3')[0].innerHTML = timeout + '</br></br></br>';
