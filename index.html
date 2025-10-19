@@ -15,7 +15,7 @@
     text-align: center; /* Center text */
   }
         h1 {
-        font-size: 48px;
+        font-size: 44px;
         font-weight: bold;
         color: blue;
         margin-bottom: 0px;
@@ -25,14 +25,14 @@
         font-size: 48px;
         font-weight: bold;
         color: #fb0446;
-        margin-bottom: 10px;
+        margin-bottom: 1px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       }
   .clock {
     font-family: 'Arial', sans-serif;
     font-size: 125px; /* Larger font size */
     font-weight: bold; /* Make it bold */
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
     background: linear-gradient(to right, blue, indigo, violet, blue);
     -webkit-background-clip: text;
@@ -111,6 +111,7 @@
   @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
   /* Render newlines in extra info */
   #extraInfo { white-space: pre-line; }
+  .fs-hint { font-size: 12px; color: #6b7280; margin-top: 60px; }
 </style>
   <head>
     <meta charset="UTF-8" />
@@ -140,18 +141,20 @@
     <div class="clock" id="clock">00:00:00</div>
     </div>
     <div>
-      <h1>ห้องสอบ ศร3-331</h1>
+      <h1>ห้องสอบ LH3-331</h1>
     </div>
     <div style="display: flex;
     flex-direction: row;
     justify-content: center; /* Vertically center content */
-    align-items: center;">
+    align-items: center;
+    margin-top: 0.0em;
+    margin-bottom: 0.0em;">
       <h2 class="course" id="subjectDisplay">วิชา ปฏิบัติการเคมีทั่วไป </h2>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <h2 class="course">รหัสวิชา 01403112</h2>
     </div>
-      <h3>หมดเวลา 16:30 น.</h3>
-            <div id="extraInfo" class="course">
+    <div style="margin-top: 0.0em;"> <h3>หมดเวลา 16:30 น.</h3> </div>
+      <div id="extraInfo" class="course">
         <h2>ข้อมูลเพิ่มเติม</h2>
       </div>
     </div>
@@ -186,6 +189,7 @@
         <div class="form-actions">
           <button onclick="updateInfo()" class="update-button">ยืนยันและแสดงเต็มจอ</button>
         </div>
+        <div class="fs-hint">หากต้องการออกจากโหมดเต็มจอ ให้กดปุ่ม ESC</div>
         <script>
             function updateInfo() {
           const subject = document.getElementById('subjectInput').value;
