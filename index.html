@@ -159,9 +159,9 @@
       <h1>ห้องสอบ LH3-331</h1>
     </div>
     <div class="section-row">
-      <h2 class="course" id="subjectDisplay">วิชา ปฏิบัติการเคมีทั่วไป </h2>
+      <h2 class="course" id="subjectDisplay"> ปฏิบัติการเคมีทั่วไป </h2>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <h2 class="course">รหัสวิชา 01403112</h2>
+      <h2 class="course">01403112</h2>
     </div>
     <div style="margin-top: 0.0em;"> <h3>หมดเวลา 16:30 น.</h3> </div>
       <div id="extraInfo" class="course">
@@ -206,10 +206,10 @@
           const timeout = document.getElementById('timeoutInput').value;
 
           if (subject) {
-              document.getElementById('subjectDisplay').textContent = 'วิชา: ' + subject;
+              document.getElementById('subjectDisplay').textContent = ' ' + subject;
           }
           if (courseCode) {
-              document.getElementsByTagName('h2')[1].textContent = 'รหัสวิชา ' + courseCode;
+              document.getElementsByTagName('h2')[1].textContent = ' ' + courseCode;
           }
           if (room) {
               document.getElementsByTagName('h1')[0].innerHTML = 'ห้องสอบ ' + room;
